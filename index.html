@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JobFill Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy policy for JobFill, a local-first Chrome extension. Version 1.0.0."
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --fg: #1a1a1a;
+        --bg: #ffffff;
+        --muted: #555555;
+        --border: #d0d0d0;
+        --th-bg: #f4f4f4;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fg: #e8e8e8;
+          --bg: #121212;
+          --muted: #a0a0a0;
+          --border: #444444;
+          --th-bg: #242424;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 1.5rem 1rem 3rem;
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 42rem;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.75rem;
+        line-height: 1.3;
+        margin: 0 0 0.5rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+        margin: 2rem 0 0.5rem;
+      }
+      .meta {
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+      ul,
+      ol {
+        padding-left: 1.25rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 0.5rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: var(--th-bg);
+      }
+      .table-wrap {
+        overflow-x: auto;
+      }
+      strong {
+        font-weight: 600;
+      }
+      code {
+        font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
+          Consolas, monospace;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>JobFill Privacy Policy</h1>
+      <p class="meta"><strong>Version:</strong> 1.0.0 &middot; <strong>Effective date:</strong> 2026-10-11</p>
+
+      <p>
+        JobFill is a local-first browser extension. This policy describes
+        exactly what the shipped extension stores, what it can access, and what
+        it sends. It does not claim anything the implementation does not do.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>JobFill has <strong>no servers</strong>. It makes <strong>no network requests</strong> of its own.</li>
+        <li>
+          Everything JobFill stores lives <strong>on your device</strong> (browser
+          extension storage), never in a cloud service operated by us.
+        </li>
+        <li>
+          <strong>AI assistance is not enabled in the production release.</strong>
+          No AI provider is shipped; nothing is sent to any AI service.
+        </li>
+        <li>
+          JobFill <strong>never submits job applications</strong> and never clicks
+          Apply, Next or Continue for you.
+        </li>
+      </ul>
+
+      <h2>Data JobFill stores (on your device only)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Where it is stored</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Profile (name, contact details, links, work preferences, professional summary)</td>
+              <td><code>chrome.storage.local</code></td>
+              <td>Fill the forms you approve</td>
+            </tr>
+            <tr>
+              <td>Answer Bank (saved answers to application questions)</td>
+              <td><code>chrome.storage.local</code></td>
+              <td>Suggest answers you approve per field</td>
+            </tr>
+            <tr>
+              <td>Resume files you import (PDF bytes, filename, metadata)</td>
+              <td>IndexedDB (<code>jobfill.resume</code>)</td>
+              <td>Suggest profile values from your resume</td>
+            </tr>
+            <tr>
+              <td>Extracted resume data (parsed text fields)</td>
+              <td>IndexedDB, with the resume record</td>
+              <td>Show reviewed suggestions; never auto-filled</td>
+            </tr>
+            <tr>
+              <td>Settings and onboarding state</td>
+              <td><code>chrome.storage.local</code></td>
+              <td>Remember your choices</td>
+            </tr>
+            <tr>
+              <td>Local usage counters (fills, undos, verification recoveries) and optional time entries you record</td>
+              <td><code>chrome.storage.local</code></td>
+              <td>Local diagnostics you can clear</td>
+            </tr>
+            <tr>
+              <td>Problem reports you create</td>
+              <td>Built locally; exported only when you copy or download them</td>
+              <td>Help you report issues without us collecting anything</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Nothing else is stored, synced or transmitted.
+        <code>chrome.storage.sync</code> is never used.
+      </p>
+
+      <h2>Data JobFill sends externally</h2>
+      <p>
+        <strong>None.</strong> The extension contains no analytics, no telemetry,
+        no crash reporting, no advertising SDKs and no backend. A full network
+        audit of the shipped package confirms the extension itself never opens a
+        network connection.
+      </p>
+      <p>
+        Problem reports are exported by you (clipboard copy or local file
+        download). JobFill does not send them anywhere.
+      </p>
+
+      <h2>Page access</h2>
+      <p>
+        JobFill's content scripts run on web pages (all frames) so it can find
+        application forms, including forms inside iframes. On those pages
+        JobFill:
+      </p>
+      <ul>
+        <li>
+          reads form <strong>metadata</strong> only (field type, label text,
+          attributes) to build its review list &mdash; it does not read the
+          values already typed into fields;
+        </li>
+        <li>
+          writes a value into a field <strong>only</strong> after you explicitly
+          review and approve that field in the JobFill popup, for that fill
+          session;
+        </li>
+        <li>never submits forms, never clicks Apply/Next/Continue, never navigates.</li>
+      </ul>
+      <p>
+        Detection snapshots (metadata only &mdash; no field values, no profile
+        values) are held in background memory for the popup and are discarded
+        when the tab closes.
+      </p>
+
+      <h2>AI</h2>
+      <p>
+        AI assistance is <strong>not enabled</strong> in this release and no AI
+        provider ships with the extension. The settings card states this. There
+        is no path by which profile or resume content could be sent to an AI
+        service in this build.
+      </p>
+
+      <h2>Deletion and control</h2>
+      <ul>
+        <li>
+          <strong>Delete All My Data</strong> (options page) removes profiles,
+          Answer Bank, resumes, extracted resume data, settings, counters and
+          time entries, and verifies the wipe by reading it back.
+        </li>
+        <li>
+          Uninstalling the extension causes the browser to remove extension
+          storage (<code>chrome.storage.local</code> and the extension's
+          IndexedDB).
+        </li>
+        <li>
+          Deletion removes JobFill's data <strong>on this device only</strong>.
+          It cannot remove anything you previously submitted to job sites or any
+          other service.
+        </li>
+        <li>
+          You can export your profile and any problem report as local files at
+          any time.
+        </li>
+      </ul>
+
+      <h2>Permissions</h2>
+      <p>
+        JobFill requests exactly one permission: <strong><code>storage</code></strong>
+        (for <code>chrome.storage.local</code>). Content scripts are injected
+        into <code>http://*/*</code> and <code>https://*/*</code> pages (all
+        frames) as part of normal extension operation; no optional or broad host
+        permissions are requested, and no other Chrome APIs
+        (<code>tabs</code>, <code>scripting</code>, <code>webNavigation</code>,
+        etc.) are used.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        JobFill is a general-purpose productivity tool and is not directed at
+        children.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        Any future change that would transmit user data off-device (for example,
+        opting into a paid AI provider) will require a new explicit user action
+        and an updated policy. Local-first behavior is the default and remains
+        the default.
+      </p>
+
+      <h2>Support</h2>
+      <p>
+        Use the in-app problem report export (options page) to create a redacted
+        local report, and the support contact published on the Chrome Web Store
+        listing. Do not include passwords, personal data or resume contents in
+        any manually submitted message.
+      </p>
+    </main>
+  </body>
+</html>
